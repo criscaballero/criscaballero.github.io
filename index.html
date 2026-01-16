@@ -3,187 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristina Caballero Rivas | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Cristina Caballero Rivas | Data Science & Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --text: #1f2937;
-            --bg: #f3f4f6;
-            --white: #ffffff;
+            --primary: #0f172a; /* Slate 900 */
+            --accent: #2563eb; /* Royal Blue */
+            --text: #334155;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
         }
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text);
             margin: 0;
             background: var(--bg);
         }
         .container {
-            max-width: 900px;
+            max-width: 1024px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        
-        /* Header / Hero Section */
-        header {
-            background: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        h1 { margin: 0; color: #111; font-size: 2.5rem; }
-        .subtitle { color: var(--primary); font-weight: 600; font-size: 1.2rem; margin-top: 10px; }
-        .description { max-width: 600px; margin: 15px auto 0; color: #4b5563; }
-        .contact-links { margin-top: 20px; }
-        .contact-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        .contact-links a:hover { color: var(--primary); }
 
-        /* Sections */
+        /* Hero Section */
+        header {
+            background: var(--card-bg);
+            padding: 5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
+        .hero-content {
+            text-align: center;
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+        .role {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .bio {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 0 12px;
+            transition: all 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
         section {
-            background: var(--white);
+            margin-bottom: 4rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+            margin-left: 15px;
+        }
+
+        /* Experience & Education Cards */
+        .timeline-item {
+            background: var(--card-bg);
+            border-radius: 12px;
             padding: 2rem;
             margin-bottom: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.2s;
         }
-        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 10px; display: inline-block; margin-top: 0; }
-        
-        /* Items */
-        .item { margin-bottom: 1.5rem; border-left: 3px solid #e5e7eb; padding-left: 15px; }
-        .item-header { display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .item-title { font-weight: bold; font-size: 1.1rem; }
-        .item-meta { color: #6b7280; font-size: 0.9rem; }
-        .tags { margin-top: 10px; }
+        .timeline-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .job-company {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .job-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+        ul.tech-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        li { margin-bottom: 0.5rem; }
+
+        /* Tech Stack Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .skill-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
         .tag {
             background: #eff6ff;
-            color: var(--primary);
-            padding: 3px 10px;
-            border-radius: 15px;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 0.85rem;
-            display: inline-block;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
         }
 
-        /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .skill-category h3 { font-size: 1rem; color: #4b5563; }
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .project-desc {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
 
-        @media (max-width: 600px) {
-            .item-header { flex-direction: column; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .job-header { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Cristina Caballero Rivas</h1>
-        <p class="subtitle">Telecommunication Engineering & Data Science | UC3M</p>
-        <p class="description">
-            Distributed Systems, Cloud Computing, and Scalable Data Management. <br>
-            High-performance Olympic Shooting Athlete.
-        </p>
-        <div class="contact-links">
-            <a href="mailto:cristina.caballero.rivas@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/criscaballero" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/criscaballero" target="_blank"><i class="fab fa-github"></i></a>
+        <div class="container hero-content">
+            <h1>Cristina Caballero Rivas</h1>
+            <div class="role">Telecommunication Engineering & Data Science</div>
+            <p class="bio">
+                Building scalable distributed systems and AI solutions. 
+                Combining engineering precision with the high-performance mindset of an Olympic Athlete.
+            </p>
+            <div class="social-links">
+                <a href="mailto:cristina.caballero.rivas@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/criscaballero" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/criscaballero" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </header>
 
     <div class="container">
-        
-        <section>
-            <h2><i class="fas fa-briefcase"></i> Experience</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Summer Intern - AI & Data Center of Excellence | EY</span>
-                    <span class="item-meta">Aug. 2024 - May 2025 (Singapore / Madrid)</span>
-                </div>
-                <p>Engineered Python-based text summarization pipelines, reducing document processing time by 50%. Deployed Machine Learning models using Docker and Azure. [cite_start]Integrated Neo4j graph databases to enhance knowledge extraction[cite: 20, 21, 22].</p>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Content Leader | UC3M Business Analytics</span>
-                    <span class="item-meta">2023 - Present</span>
-                </div>
-                <p>Lead a team of 10 students to produce technical educational content on Analytics and Business Intelligence. [cite_start]Demonstrated strong ownership by coordinating workflows and strict deadlines[cite: 26, 27].</p>
-            </div>
-        </section>
 
         <section>
-            <h2><i class="fas fa-code"></i> Featured Projects</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Distributed Column-Oriented Database</span>
-                </div>
-                <p>Designed and implemented a column-oriented storage engine optimized for read-heavy analytical workloads. [cite_start]Developed MapReduce algorithms improving query performance by 50%[cite: 35, 36].</p>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">MapReduce</span>
-                    <span class="tag">Distributed Systems</span>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Race Strategy Simulation (RL)</span>
-                </div>
-                [cite_start]<p>Designed Reinforcement Learning agents to optimize race decision-making under uncertainty, simulating real-time bidding environments[cite: 38].</p>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">RL Algorithms</span>
-                </div>
-            </div>
-
-             <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Few-Shot Face Anonymizer</span>
-                </div>
-                [cite_start]<p>Built a one-shot recognition and anonymization model using Transfer Learning to handle limited data scenarios effectively[cite: 43].</p>
-                <div class="tags">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">Computer Vision</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">B.Eng. in Telecommunication Engineering & Data Science</span>
-                    <span class="item-meta">2022 - 2027 (Expected)</span>
-                </div>
-                <p>Universidad Carlos III de Madrid (UC3M) | GPA: 8.5/10<br>
-                [cite_start]<em>Minor in Business Management</em> [cite: 9, 10]</p>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Exchange Student - Electrical & Electronic Engineering</span>
-                    <span class="item-meta">Nanyang Technological University (NTU), Singapore</span>
-                </div>
-                [cite_start]<p>Focus Areas: Distributed Systems, Cloud Computing, and Scalable Data Management[cite: 12, 13].</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+            <h2><i class="fas fa-code"></i> Technical Stack</h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-card">
                     <h3>Languages</h3>
-                    <div class="tags">
+                    <div class="tech-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Java</span>
                         <span class="tag">SQL</span>
@@ -191,26 +222,132 @@
                         <span class="tag">C++</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Cloud</h3>
-                    <div class="tags">
+                <div class="skill-card">
+                    <h3>AI & Data</h3>
+                    <div class="tech-tags">
                         <span class="tag">PyTorch</span>
                         <span class="tag">TensorFlow</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Neo4j</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Infrastructure</h3>
+                    <div class="tech-tags">
                         <span class="tag">Docker</span>
                         <span class="tag">Azure</span>
                         <span class="tag">Git</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Concepts</h3>
-                    <div class="tags">
-                        <span class="tag">Distributed Systems</span>
-                        <span class="tag">Data Structures</span>
+                        <span class="tag">Linux/Bash</span>
                         <span class="tag">MapReduce</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section>
+            <h2><i class="fas fa-laptop-code"></i> Engineered Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="project-title">Distributed Column-Oriented Database</span>
+                    <p class="project-desc">
+                        Designed a storage engine optimized for read-heavy analytical workloads. 
+                        Implemented MapReduce algorithms improving query performance by 50% vs row-based baselines.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">MapReduce</span>
+                        <span class="tag">Distributed Systems</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-title">Race Strategy Simulation (RL)</span>
+                    <p class="project-desc">
+                        Developed Reinforcement Learning agents to optimize decision-making under uncertainty, simulating real-time bidding environments and resource trade-offs.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Reinforcement Learning</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-title">Few-Shot Face Anonymizer</span>
+                    <p class="project-desc">
+                        Built a one-shot recognition and anonymization model using Transfer Learning to handle limited data scenarios effectively.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Summer Intern - AI & Data Center of Excellence</div>
+                        <div class="job-company">EY (Ernst & Young)</div>
+                    </div>
+                    <div class="job-date">Aug 2024 - May 2025 | Singapore & Madrid</div>
+                </div>
+                <ul class="tech-list">
+                    <li>Engineered Python-based text summarization pipelines, reducing document processing time by <strong>50%</strong>.</li>
+                    <li>Deployed Machine Learning models using <strong>Docker</strong> and <strong>Azure</strong>, ensuring scalable environments.</li>
+                    <li>Integrated <strong>Neo4j</strong> graph databases to enhance knowledge extraction for complex datasets.</li>
+                    <li>Collaborated in an agile team to accelerate Generative AI solution delivery.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Content Leader - Business Analytics</div>
+                        <div class="job-company">UC3M Business Analytics</div>
+                    </div>
+                    <div class="job-date">2023 - Present</div>
+                </div>
+                <ul class="tech-list">
+                    <li>Lead a team of 10 students to produce technical educational content on Analytics and BI.</li>
+                    <li>Managed workflows and ensured strict project deadlines were met.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">B.Eng. in Telecommunication Engineering & Data Science</div>
+                        <div class="job-company">Universidad Carlos III de Madrid (UC3M)</div>
+                    </div>
+                    <div class="job-date">Exp. 2027 | GPA: 8.5/10</div>
+                </div>
+                <p><em>Minor in Business Management</em></p>
+                <p>Relevant Coursework: Data Structures & Algorithms, Operating Systems, Machine Learning, Distributed Systems.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Exchange Student - Electrical & Electronic Engineering</div>
+                        <div class="job-company">Nanyang Technological University (NTU), Singapore</div>
+                    </div>
+                </div>
+                <p>Focus Areas: Distributed Systems, Cloud Computing, and Scalable Data Management.</p>
+            </div>
+        </section>
+        
+        <footer style="text-align: center; margin-top: 4rem; padding-bottom: 2rem; color: #94a3b8; font-size: 0.9rem;">
+            <p>© 2026 Cristina Caballero Rivas. Built with code & precision.</p>
+        </footer>
 
     </div>
 </body>
