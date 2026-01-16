@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristina Caballero Rivas | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text: #1f2937;
+            --bg: #f3f4f6;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            background: var(--bg);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header / Hero Section */
+        header {
+            background: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        h1 { margin: 0; color: #111; font-size: 2.5rem; }
+        .subtitle { color: var(--primary); font-weight: 600; font-size: 1.2rem; margin-top: 10px; }
+        .contact-links { margin-top: 20px; }
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .contact-links a:hover { color: var(--primary); }
+
+        /* Sections */
+        section {
+            background: var(--white);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 10px; display: inline-block; margin-top: 0; }
+        
+        /* Items */
+        .item { margin-bottom: 1.5rem; border-left: 3px solid #e5e7eb; padding-left: 15px; }
+        .item-header { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .item-title { font-weight: bold; font-size: 1.1rem; }
+        .item-meta { color: #6b7280; font-size: 0.9rem; }
+        .tags { margin-top: 10px; }
+        .tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Skills Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .skill-category h3 { font-size: 1rem; color: #4b5563; }
+
+        @media (max-width: 600px) {
+            .item-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cristina Caballero Rivas</h1>
+        <p class="subtitle">Ingeniera de Telecomunicaciones & Data Science | UC3M</p>
+        <p>Apasionada por los Sistemas Distribuidos, Cloud Computing y ML. Atleta Olímpica de Tiro.</p>
+        <div class="contact-links">
+            <a href="mailto:cristina.caballero.rivas@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/criscaballero" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/criscaballero" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Experiencia</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Summer Intern - AI & Data Center of Excellence | EY</span>
+                    <span class="item-meta">Ago 2024 - May 2025 (Singapur / Madrid)</span>
+                </div>
+                <p>Ingeniería de pipelines de resumen de texto en Python reduciendo tiempos un 50%. Despliegue de modelos ML con Docker y Azure. Integración de bases de datos de grafos Neo4j.</p>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Content Leader | UC3M Business Analytics</span>
+                    <span class="item-meta">2023 - Presente</span>
+                </div>
+                <p>Liderazgo de equipo de 10 estudiantes para producir contenido técnico sobre Analytics y BI.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-code"></i> Proyectos Destacados</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Distributed Column-Oriented Database</span>
+                </div>
+                <p>Motor de almacenamiento optimizado para cargas analíticas. Implementación de algoritmos MapReduce mejorando el rendimiento de consultas en un 50%.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">MapReduce</span>
+                    <span class="tag">Sistemas Distribuidos</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Race Strategy Simulation (RL)</span>
+                </div>
+                <p>Diseño de agentes de Reinforcement Learning para optimizar la toma de decisiones en carreras bajo incertidumbre.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">RL Algorithms</span>
+                </div>
+            </div>
+
+             <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Few-Shot Face Anonymizer</span>
+                </div>
+                <p>Modelo de anonimización y reconocimiento one-shot usando Transfer Learning para escenarios con datos limitados.</p>
+                <div class="tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Computer Vision</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">B.Eng. in Telecommunication Engineering & Data Science</span>
+                    <span class="item-meta">2022 - 2027 (Esperado)</span>
+                </div>
+                <p>Universidad Carlos III de Madrid (UC3M) | GPA: 8.5/10<br>
+                <em>Minor en Business Management</em></p>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Estudiante de Intercambio - Ingeniería Eléctrica</span>
+                    <span class="item-meta">Nanyang Technological University (NTU), Singapur</span>
+                </div>
+                <p>Foco en Cloud Computing y Scalable Data Management.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-tools"></i> Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Lenguajes</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">R</span>
+                        <span class="tag">C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Git/GitHub</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data & AI</h3>
+                    <div class="tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
