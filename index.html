@@ -19,6 +19,7 @@
             color: var(--text);
             margin: 0;
             background: var(--bg);
+            overflow-x: hidden; /* Prevents horizontal scroll on the main body */
         }
         .container {
             max-width: 1024px;
@@ -158,20 +159,66 @@
             border: 1px solid #dbeafe;
         }
 
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* --- PROJECTS SLIDER (NUEVO) --- */
+        .project-slider-container {
+            /* Wrapper to handle padding and shadows for the scroll area */
+            margin: 0 -20px; /* Negative margin to align with container padding */
+            padding: 20px; /* Padding for the scroll snap area and shadows */
+            overflow: hidden;
         }
+
+        .project-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1.5rem; /* Space for scrollbar */
+            scroll-snap-type: x mandatory; /* Makes scrolling snap to items */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            
+            /* Styling the scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        /* Webkit scrollbar styling */
+        .project-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        .project-slider::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .project-slider::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+            border: 2px solid #f1f5f9;
+        }
+        .project-slider::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
         .project-card {
+            /* Flex properties for slider */
+            flex: 0 0 auto; /* Don't shrink, keep width */
+            width: 340px;   /* Fixed width for consistency in slider */
+            scroll-snap-align: start; /* Where the item snaps to */
+
+            /* Existing styles */
             background: var(--card-bg);
             border-radius: 12px;
             padding: 2rem;
             border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .project-card:hover {
+             transform: translateY(-3px);
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
         .project-title {
             font-size: 1.25rem;
             font-weight: 700;
@@ -183,12 +230,13 @@
             font-size: 0.95rem;
             color: #475569;
             margin-bottom: 1.5rem;
-            flex-grow: 1;
+            flex-grow: 1; /* Ensures tech tags are pushed to bottom */
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .job-header { flex-direction: column; gap: 5px; }
+            .project-card { width: 280px; } /* Slightly narrower on mobile */
         }
     </style>
 </head>
@@ -251,64 +299,67 @@
 
         <section>
             <h2><i class="fas fa-laptop-code"></i> Engineered Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <span class="project-title">Sign Language Classifier</span>
-                    <p class="project-desc">
-                        Developed a computer vision system to recognize and classify hand gestures into sign language symbols. Optimized feature extraction by implementing PCA and LDA to reduce dimensionality while maintaining high classification accuracy.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">PCA</span>
-                        <span class="tag">LDA</span>
-                        <span class="tag">Computer Vision</span>
+            <div class="project-slider-container">
+                <div class="project-slider">
+                    <div class="project-card">
+                        <span class="project-title">Sign Language Classifier</span>
+                        <p class="project-desc">
+                            Developed a computer vision model to recognize and classify hand gestures into sign language symbols from images. Implemented dimensionality reduction using PCA and LDA techniques to optimize feature extraction and model performance.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PCA & LDA</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <span class="project-title">PlanIt: Social Event Platform</span>
-                    <p class="project-desc">
-                        Co-developed a full-stack web application designed for social event management. Implemented responsive user interfaces and backend logic for user coordination, event scheduling, and real-time interaction.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Full-stack Dev</span>
+                    <div class="project-card">
+                        <span class="project-title">Plan your adventure</span>
+                        <p class="project-desc">
+                            Co-developed a responsive web application designed for planning social events and adventures. Implemented interactive user interfaces and frontend logic for user coordination and scheduling.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Web Dev</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <span class="project-title">Distributed Column-Oriented Database</span>
-                    <p class="project-desc">
-                        Designed a storage engine optimized for read-heavy analytical workloads. 
-                        Implemented MapReduce algorithms improving query performance by 50% vs row-based baselines.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">MapReduce</span>
-                        <span class="tag">Distributed Systems</span>
+                    <div class="project-card">
+                        <span class="project-title">Distributed Column Database</span>
+                        <p class="project-desc">
+                            Designed a storage engine optimized for read-heavy analytical workloads. 
+                            Implemented MapReduce algorithms improving query performance by 50% vs row-based baselines.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">MapReduce</span>
+                            <span class="tag">Distributed Systems</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <span class="project-title">Race Strategy Simulation (RL)</span>
-                    <p class="project-desc">
-                        Developed Reinforcement Learning agents to optimize decision-making under uncertainty, simulating real-time bidding environments and resource trade-offs.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Reinforcement Learning</span>
+                    <div class="project-card">
+                        <span class="project-title">Race Strategy Simulation (RL)</span>
+                        <p class="project-desc">
+                            Developed Reinforcement Learning agents to optimize decision-making under uncertainty, simulating real-time bidding environments and resource trade-offs.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Reinforcement Learning</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <span class="project-title">Few-Shot Face Anonymizer</span>
-                    <p class="project-desc">
-                        Built a one-shot recognition and anonymization model using Transfer Learning to handle limited data scenarios effectively.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">Computer Vision</span>
+                    <div class="project-card">
+                        <span class="project-title">Few-Shot Face Anonymizer</span>
+                        <p class="project-desc">
+                            Built a one-shot recognition and anonymization model using Transfer Learning to handle limited data scenarios effectively.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -381,5 +432,3 @@
     </div>
 </body>
 </html>
-
-
